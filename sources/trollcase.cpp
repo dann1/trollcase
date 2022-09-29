@@ -1,6 +1,5 @@
 #include <iostream>
 #include <random>
-// #include <typeinfo>
 
 using namespace std;
 
@@ -13,32 +12,40 @@ int main(int argc, char const *argv[])
 {
 	// TODO: Improve CLI arguments to be order free
 
-	string text_input = argv[1];
-	string mode = argv[2];
+	string text;
+	string mode;
 
 	switch (argc)
 	{
 	case 1:
 		helptrollcase();
+
 		return 1;
+
 		break;
 
 	case 2:
-		puts(CaSeRAndOMizEr(text_input));
+		text = argv[1];
+		puts(CaSeRAndOMizEr(text));
+
 		return 0;
+
 		break;
 
 	default:
 		string m0 = "--random";
 		string m1 = "--alternate";
 
+		text = argv[1];
+		mode = argv[2];
+
 		if (m0.compare(mode) == 0)
 		{
-			puts(CaSeRAndOMizEr(text_input));
+			puts(CaSeRAndOMizEr(text));
 		}
 		else if (m1.compare(mode) == 0)
 		{
-			puts(cAsEaLtErNaToR(text_input));
+			puts(cAsEaLtErNaToR(text));
 		}
 		else
 		{
@@ -54,7 +61,7 @@ int main(int argc, char const *argv[])
 string CaSeRAndOMizEr(string text)
 {
 	random_device dev;
-	mt19937 rng(dev());
+	mt19937 rng(dev());	
 	uniform_int_distribution<mt19937::result_type> dist6(0, 1);
 
 	for (size_t i = 0; i < text.length(); i++)
@@ -78,30 +85,22 @@ string CaSeRAndOMizEr(string text)
 	return text;
 }
 
-// TODO: Improve by checking the previous string case
 string cAsEaLtErNaToR(string text)
 {
-	for (size_t i = 0; i < text.length(); i++)
+	for (size_t i = 1; i < text.length(); i++)
 	{
-
 		if (!isalpha(text[i]))
 		{
 			continue;
 		}
 
-		if (i % 2 == 0)
+		if (islower(text[i - 1]))
 		{
-			if (isupper(text[i]))
-			{
-				text[i] = tolower(text[i]);
-			}
+			text[i] = toupper(text[i]);
 		}
-		else
+		else if (isupper(text[i - 1]))
 		{
-			if (islower(text[i]))
-			{
-				text[i] = toupper(text[i]);
-			}
+			text[i] = tolower(text[i]);
 		}
 	}
 
