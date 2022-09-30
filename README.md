@@ -1,9 +1,8 @@
-# trollcase
+# Trollcase
 CAseRAndomIZEr
 
-Compile with gcc
 
-## usage
+## Usage
 
 usage: trollcase <text_to_troll> --random/--alternate
 

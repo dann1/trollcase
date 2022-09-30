@@ -61,7 +61,7 @@ int main(int argc, char const *argv[])
 string CaSeRAndOMizEr(string text)
 {
 	random_device dev;
-	mt19937 rng(dev());	
+	mt19937 rng(dev());
 	uniform_int_distribution<mt19937::result_type> dist6(0, 1);
 
 	for (size_t i = 0; i < text.length(); i++)
