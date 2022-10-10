@@ -1,6 +1,6 @@
 # Trollcase
-CAseRAndomIZEr
 
+CAseRAndomIZEr
 
 ## Usage
 
@@ -12,3 +12,9 @@ Example
 trollcase "Is it compatible with AE ? Thanks"                                                                                                    Thu Sep 29 13:04:43 2022
 iS IT COMPATIbLe wITh AE ? thAnKs
 ```
+
+## TODO
+
+- clipboard integration
+- unordered cli flags
+- interactive mode
