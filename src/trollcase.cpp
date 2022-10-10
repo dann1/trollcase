@@ -4,56 +4,62 @@
 using std::string;
 
 #define puts(x) std::cout << x << std::endl;
-#define helptrollcase() printf("usage: trollcase <text_to_troll> --random/--alternate");
+#define help() puts("usage: trollcase <text_to_troll> --random/--alternate/--interactive https://github.com/dann1/trollcase");
 
 int main(int argc, char const *argv[])
 {
 	string text;
 	string mode;
+	string uinput;
+
+	string modes[3] = { "--random", "--alternate", "--interactive" };
 
 	switch (argc)
 	{
 	case 1:
-		helptrollcase();
-
+		help();
 		return 1;
 
 		break;
-
 	case 2:
 		text = argv[1];
-		puts(CaSeRAndOMizEr(text));
 
-		return 0;
-
-		break;
-
-	default:
-		string m0 = "--random";
-		string m1 = "--alternate";
-
-		string h0 = "--help";
-		string h1 = "-h";
-
-		text = argv[1];
-		mode = argv[2];
-
-		if (m0.compare(mode) == 0)
+		if (text.compare("--help") == 0 || text.compare("-h") == 0)
+		{
+			help();
+		}
+		else
 		{
 			puts(CaSeRAndOMizEr(text));
 		}
-		else if (m1.compare(mode) == 0)
+
+		break;
+	default:
+		text = argv[1];
+		mode = argv[2];
+
+		if (modes[0].compare(mode) == 0)
+		{
+			puts(CaSeRAndOMizEr(text));
+		}
+		else if (modes[1].compare(mode) == 0)
 		{
 			puts(cAsEaLtErNaToR(text));
 		}
-		else if (h0.compare(mode) == 0 || h1.compare(mode) == 0)
+		else if (modes[2].compare(mode) == 0)
 		{
-			helptrollcase()
-		}
+			puts("Type text to be trolled with randomized casing");
+			std::cin >> uinput;
 
+			puts(CaSeRAndOMizEr(uinput));
+
+			std::cin.ignore(1);
+			std::getchar();
+		}
 		else
 		{
-			printf("Mode not specified");
+			puts("Mode not valid");
+			help();
 			return 1;
 		}
 

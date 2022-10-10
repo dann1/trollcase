@@ -4,7 +4,7 @@ CAseRAndomIZEr
 
 ## Usage
 
-usage: trollcase <text_to_troll> --random/--alternate
+usage: trollcase <text_to_troll> --random/--alternate/--interactive
 
 Example
 
@@ -13,8 +13,11 @@ trollcase "Is it compatible with AE ? Thanks"                                   
 iS IT COMPATIbLe wITh AE ? thAnKs
 ```
 
-## TODO
+## Features
 
 - clipboard integration
 - unordered cli flags
-- interactive mode
+- [x] interactive mode
+- [x] random casing
+- [x] alternate casing
+- [ ] build passing badge
