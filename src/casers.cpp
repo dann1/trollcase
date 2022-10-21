@@ -10,19 +10,17 @@ string CaSeRAndOMizEr(string text)
 
 	for (size_t i = 0; i < text.length(); i++)
 	{
+		char& c = text[i];
+
 		if (dist6(rng) == 1)
 		{
-			if (islower(text[i]))
-			{
-				text[i] = toupper(text[i]);
-			}
+			if (islower(c))
+				c = toupper(c);
 		}
 		else
 		{
-			if (isupper(text[i]))
-			{
-				text[i] = tolower(text[i]);
-			}
+			if (isupper(c))
+				c = tolower(c);
 		}
 	}
 
@@ -33,19 +31,15 @@ string cAsEaLtErNaToR(string text)
 {
 	for (size_t i = 1; i < text.length(); i++)
 	{
-		if (!isalpha(text[i]))
-		{
-			continue;
-		}
+		char &c 	 = text[i];
+		char &c_prev = text[i - 1];
 
-		if (islower(text[i - 1]))
-		{
-			text[i] = toupper(text[i]);
-		}
-		else if (isupper(text[i - 1]))
-		{
-			text[i] = tolower(text[i]);
-		}
+		if (!isalpha(c))
+			continue;
+		if (islower(c_prev))
+			c = toupper(c);
+		else if (isupper(c_prev))
+			c = tolower(c);
 	}
 
 	return text;
