@@ -10,7 +10,7 @@ string CaSeRAndOMizEr(string text)
 
 	for (size_t i = 0; i < text.length(); i++)
 	{
-		char& c = text[i];
+		char &c = text[i];
 
 		if (dist6(rng) == 1)
 		{
@@ -31,7 +31,7 @@ string cAsEaLtErNaToR(string text)
 {
 	for (size_t i = 1; i < text.length(); i++)
 	{
-		char &c 	 = text[i];
+		char &c = text[i];
 		char &c_prev = text[i - 1];
 
 		if (!isalpha(c))
