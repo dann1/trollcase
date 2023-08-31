@@ -12,7 +12,3 @@ add_executable(TrollCase src/main.cpp src/casers.cpp)
 
 # Add header directories
 target_include_directories(TrollCase PUBLIC "${PROJECT_BINARY_DIR}")
-
-# Add compile definitions
-target_compile_definitions(TrollCase PRIVATE puts(x) =std::cout << x << std::endl;)
-target_compile_definitions(TrollCase PRIVATE help() =puts("usage: trollcase <text_to_troll> --random/--alternate/--interactive") ;)

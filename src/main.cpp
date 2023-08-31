@@ -1,25 +1,23 @@
 #include "casers.h"
 #include <iostream>
 
-using std::string;
-
-void puts(x)
+inline void puts(const std::string &x)
 {
 	std::cout << x << std::endl;
 }
 
-void help(x)
+inline void help()
 {
-	puts("usage: trollcase <text_to_troll> --random/--alternate/--interactive")
+	puts("usage: trollcase <text_to_troll> --random/--alternate/--interactive https://github.com/dann1/trollcase");
 }
 
 int main(int argc, char const *argv[])
 {
-	string text;
-	string mode;
-	string uinput;
+	std::string text;
+	std::string mode;
+	std::string uinput;
 
-	string modes[3] = {"--random", "--alternate", "--interactive"};
+	std::string modes[3] = {"--random", "--alternate", "--interactive"};
 
 	switch (argc)
 	{
