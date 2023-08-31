@@ -1,6 +1,6 @@
 # Trollcase
 
-CAseRAndomIZEr
+A C++ CLI application
 
 ## Usage
 
@@ -9,15 +9,13 @@ usage: trollcase <text_to_troll> --random/--alternate/--interactive
 Example
 
 ```
-trollcase "Is it compatible with AE ? Thanks"                                                                                                    Thu Sep 29 13:04:43 2022
+trollcase "Is it compatible with AE ? Thanks"
 iS IT COMPATIbLe wITh AE ? thAnKs
 ```
 
 ## Features
 
-- clipboard integration
-- unordered cli flags
-- [x] interactive mode
-- [x] random casing
-- [x] alternate casing
-- [ ] build passing badge
+The casing is separated into a library that can be included by other cpp apps. Casing methods
+
+- random
+- alternate
