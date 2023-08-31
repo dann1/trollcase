@@ -1,7 +1,7 @@
 #include <random>
 #include "casers.h"
 
-std::string CaSeRAndOMizEr(std::string text)
+std::string CaSeRAndOMizEr(std::string& text)
 {
 	std::random_device dev;
 	std::mt19937 rng(dev());
@@ -26,7 +26,7 @@ std::string CaSeRAndOMizEr(std::string text)
 	return text;
 }
 
-std::string cAsEaLtErNaToR(std::string text)
+std::string cAsEaLtErNaToR(std::string& text)
 {
 	for (size_t i = 1; i < text.length(); i++)
 	{
