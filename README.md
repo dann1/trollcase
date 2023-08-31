@@ -6,7 +6,7 @@ A C++ CLI application that alters the casing of a given string
 
 ## Usage
 
-usage: trollcase <text_to_troll> --random/--alternate/--interactive
+`trollcase <text_to_troll> --random/--alternate/--interactive`
 
 Example
 
