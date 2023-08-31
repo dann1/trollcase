@@ -1,6 +1,8 @@
 # Trollcase
 
-A C++ CLI application
+A C++ CLI application that alters the casing of a given string
+
+[![CMake build](https://github.com/dann1/trollcase/actions/workflows/cmake-multi-platform.yml/badge.svg)](https://github.com/dann1/trollcase/actions/workflows/cmake-multi-platform.yml)
 
 ## Usage
 
