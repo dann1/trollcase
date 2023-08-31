@@ -1,4 +1,4 @@
-name: CMake on multiple platforms
+name: CMake Unix
 
 on:
   push:
@@ -14,13 +14,10 @@ jobs:
       fail-fast: true
 
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest]
         build_type: [Release]
         c_compiler: [clang, cl]
         include:
-          - os: windows-latest
-            c_compiler: cl
-            cpp_compiler: cl
           - os: ubuntu-latest
             c_compiler: clang
             cpp_compiler: clang++
@@ -28,8 +25,6 @@ jobs:
             c_compiler: clang
             cpp_compiler: clang++
         exclude:
-          - os: windows-latest
-            c_compiler: clang
           - os: ubuntu-latest
             c_compiler: cl
           - os: macos-latest
@@ -59,18 +54,8 @@ jobs:
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
 
-    - name: Set executable path based on OS
-      id: execpath
-      run: |
-        if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
-          echo "exec-path=TrollCase.exe" >> $GITHUB_ENV
-        else
-          echo "exec-path=TrollCase" >> $GITHUB_ENV
-        fi
-
     - name: Upload build artifact
       uses: actions/upload-artifact@v3
       with:
         name: TrollCase-${{ matrix.os }}-${{ matrix.build_type }}
-        path: ${{ steps.strings.outputs.build-output-dir }}/Release/${{ env.exec-path }}
-
+        path: ${{ steps.strings.outputs.build-output-dir }}/TrollCase
