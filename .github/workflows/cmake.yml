@@ -68,31 +68,3 @@ jobs:
       with:
         name: TrollCase-${{ matrix.os }}
         path: ${{ steps.strings.outputs.build-output-dir }}/TrollCase
-
-  release:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Download all build artifacts
-        uses: actions/download-artifact@v3
-
-      - name: Install GitHub CLI
-        run: |
-          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
-          sudo apt-add-repository https://cli.github.com/packages
-          sudo apt update
-          sudo apt install gh
-
-      - name: Setup GitHub CLI
-        run: gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
-
-      - name: Create a release and upload artifacts
-        run: |
-          TAG_NAME="release-$(date +'%Y%m%d%H%M%S')"
-          gh release create $TAG_NAME \
-            ./TrollCase-ubuntu-latest ./TrollCase-windows-latest ./TrollCase-macos-latest \
-            --title "Automated release $TAG_NAME" \
-            --notes "Release for commit: ${{ github.sha }}"
